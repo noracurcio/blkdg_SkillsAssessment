@@ -30,48 +30,53 @@ print_r($_POST);
 
 
 // trying to connect to mysql db
-$servername = "localhost";
-$username = "noracurcio";
-$password = "hellomoto";
-$dbname = "login_form";
+$db_host = 'localhost';
+$db_user = 'root';
+$db_password = 'root';
+$db_db = 'information_schema';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$mysqli = @new mysqli(
+    $db_host,
+    $db_user,
+    $db_password,
+    $db_db
+);
+
+if ($mysqli->connect_error) {
+    echo 'Errno: ' . $mysqli->connect_errno;
+    echo '<br>';
+    echo 'Error: ' . $mysqli->connect_error;
+    exit();
 }
 
-$sql = "INSERT INTO form_data (user-firstname, user-lastname, user-username, user-userpassword)
-VALUES ($firstname, $lastname, $username, $hashpass)";
+echo 'Success: A proper connection to MySQL was made.';
+echo '<br>';
+echo 'Host information: ' . $mysqli->host_info;
+echo '<br>';
+echo 'Protocol version: ' . $mysqli->protocol_version;
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
+$mysqli->close();
+?>
 
 // if statement - isset is an inherant action - if true POST data stored in submit
 if (isset($_POST['submit'])) {
-    // echo 'test';
-    // checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable. 
-    // sanitize_text_field cleans inout field before we feed anything into the DB
-    $firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
-    $lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
-    $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
-    $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
+// echo 'test';
+// checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable.
+// sanitize_text_field cleans inout field before we feed anything into the DB
+$firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
+$lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
+$username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
+$password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
 
 
-    echo "First Name: $firstname";
-    echo "Last Name: $lastname";
-    echo "Username: $username";
-    echo "Password: $password";
-    // Hashing password and storing in hashpass variable
-    $hashpass = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+echo "First Name: $firstname";
+echo "Last Name: $lastname";
+echo "Username: $username";
+echo "Password: $password";
+// Hashing password and storing in hashpass variable
+$hashpass = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
 
-    echo $hashpass;
+echo $hashpass;
 }
 
 get_footer();
