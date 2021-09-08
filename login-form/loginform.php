@@ -94,15 +94,17 @@ if (isset($_POST['submit'])) {
     echo $hashpass;
 }
 
+// this exports the variables needed in next function
 var_dump($firstname, $lastname, $username, $hashpass);
 
 function myFunction($firstname, $lastname, $hashpass, $username)
 {
     global $wpdb;
     $table_name = $wpdb->prefix . 'form_data';
-    $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $firstname, 'user-lastname' => $lastname,));
+    $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $firstname, 'user-lastname' => $lastname, 'user-username' => $username, 'user-password' => $hashpass));
 }
 
+myFunction($firstname, $lastname, $hashpass, $username);
 
 get_footer();
 ?>
