@@ -7,8 +7,11 @@
 get_header();
 ?>
 <form action="" method="post">
-    <label for="user-username">username
-        <input id="user-username" type="text" name="user-hobby" value="">
+    <label for="user-firstname">
+        <input id="user-firstname" type="text" name="user-firstname" value="">
+    </label>
+    <label for="user-lastname">
+        <input id="user-lastname" type="text" name="user-lastname" value="">
     </label>
 </form>
 <?php
