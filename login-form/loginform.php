@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     echo "Last Name: $lastname";
     echo "Username: $username";
     echo "Password: $password";
-    // trying to hashpass
+    // Hashing password and storing in hashpass variable
     $hashpass = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
 
     echo $hashpass;
