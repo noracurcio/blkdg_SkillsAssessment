@@ -6,7 +6,7 @@
 
 get_header();
 ?>
-<form action="" method="post">
+<form action="other_page.php" method="post">
     <label for="user-firstname"> First Name
         <input id="user-firstname" type="text" name="user-firstname" value="">
     </label>
@@ -27,10 +27,21 @@ get_header();
 
 <?php
 
+
+// connection to the db
 $conn = mysqli_connect('localhost', 'root', 'root', 'nora_db');
 if (!$conn) {
+    // if the connection doesn't work, echo it.
     echo 'Connection error: ' . mysqli_connect_error();
 }
+
+$sqlquery = 'INSERT INTO submit_data 
+VALUES (nora, curcio, noracurcio, hello)';
+
+
+$result = mysqli_query($conn, $sql);
+
+
 // connection to mysql db
 // $db_host = 'localhost';
 // $db_user = 'root';
