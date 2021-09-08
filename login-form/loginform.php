@@ -33,10 +33,13 @@ if (isset($_POST['submit'])) {
     // checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable. 
     // sanitize_text_field cleans inout field before we feed anything into the DB
     $firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
-    echo $firstname;
     $lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
-    echo $firsttname;
+    $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
+    $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
+    echo ("First Name") + $firstname;
     echo $lastname;
+    echo $username;
+    echo $password;
 }
 get_footer();
 ?>
