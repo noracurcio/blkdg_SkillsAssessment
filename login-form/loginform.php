@@ -19,6 +19,7 @@ get_header();
     <label for="user-dob"> Password
         <input id="user-dob" type="text" name="user-dob" value="">
     </label>
+    <input for="submit" name="submit" value="Submit">
 </form>
 <?php
 echo '<pre>';
