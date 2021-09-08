@@ -100,7 +100,7 @@ function myFunction($firstname, $lastname, $hashpass, $username)
 {
     global $wpdb;
     $table_name = $wpdb->prefix . 'form_data';
-    $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $lastname, 'user-password' => $hashpass));
+    $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $firstname, 'user-lastname' => $lastname,));
 }
 
 
