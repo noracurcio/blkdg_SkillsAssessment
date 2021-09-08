@@ -41,7 +41,9 @@ if (isset($_POST['submit'])) {
     echo "Username: $username";
     echo "Password: $password";
     // trying to hashpass
-    password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+    $hashpass = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+
+    echo $hashpass;
 }
 
 get_footer();
