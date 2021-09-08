@@ -64,6 +64,8 @@ get_header();
 <?php
 
 
+
+
 // print results to an array
 print_r($_POST);
 
@@ -91,6 +93,16 @@ if (isset($_POST['submit'])) {
 
     echo $hashpass;
 }
+
+var_dump($firstname, $lastname, $username, $hashpass);
+
+function myFunction($firstname, $lastname, $hashpass, $username)
+{
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'form_data';
+    $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $lastname, 'user-password' => $hashpass));
+}
+
 
 get_footer();
 ?>
