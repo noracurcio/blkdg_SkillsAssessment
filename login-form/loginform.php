@@ -30,7 +30,11 @@ echo '<pre>';
 print_r($_POST);
 // if statement - isset is an inherant action - if true POST data stored in submit
 if (isset($_POST['submit'])) {
-    echo 'test';
+    // echo 'test';
+    // checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable. 
+    // sanitize_text_field cleans inout field before we feed anything into the DB
+    $firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
+    echo $firstname;
 }
 get_footer();
 ?>
