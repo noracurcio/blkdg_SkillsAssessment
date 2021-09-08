@@ -34,6 +34,9 @@ if (isset($_POST['submit'])) {
     // sanitize_text_field cleans inout field before we feed anything into the DB
     $firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
     echo $firstname;
+    $lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
+    echo $firsttname;
+    echo $lastname;
 }
 get_footer();
 ?>
