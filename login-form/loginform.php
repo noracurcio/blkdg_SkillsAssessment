@@ -21,5 +21,7 @@ get_header();
     </label>
 </form>
 <?php
-get_footer()
+echo '<pre>';
+print_r($_POST);
+get_footer();
 ?>
