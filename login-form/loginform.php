@@ -27,6 +27,32 @@ get_header();
 
 // print results to an array
 print_r($_POST);
+
+
+// write function that stores to the users DB using add_user() from wp provided function
+$servername = "localhost";
+$username = "noracurcio";
+$password = "hellomoto";
+$dbname = "login_form";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO form_data (user-firstname, user-lastname, user-username, user-userpassword)
+VALUES ($firstname, $lastname, $username, $hashpass)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
 // if statement - isset is an inherant action - if true POST data stored in submit
 if (isset($_POST['submit'])) {
     // echo 'test';
@@ -36,6 +62,8 @@ if (isset($_POST['submit'])) {
     $lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
     $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
     $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
+
+
     echo "First Name: $firstname";
     echo "Last Name: $lastname";
     echo "Username: $username";
