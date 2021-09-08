@@ -24,8 +24,7 @@ get_header();
 </form>
 <?php
 
-// echo is like return or console.log
-echo '<pre>';
+
 // print results to an array
 print_r($_POST);
 // if statement - isset is an inherant action - if true POST data stored in submit
