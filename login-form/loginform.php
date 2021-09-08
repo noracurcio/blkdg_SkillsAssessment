@@ -25,43 +25,45 @@ get_header();
 
 
 <?php
-// $db_host = 'localhost';
-// $db_user = 'root';
-// $db_password = 'root';
-// $db_db = 'information_schema';
+$db_host = 'localhost';
+$db_user = 'root';
+$db_password = 'root';
+$db_db = 'information_schema';
 
-// $mysqli = @new mysqli(
-//     $db_host,
-//     $db_user,
-//     $db_password,
-//     $db_db
-// );
+$mysqli = @new mysqli(
+    $db_host,
+    $db_user,
+    $db_password,
+    $db_db
+);
 
-// if ($mysqli->connect_error) {
-//     echo 'Errno: ' . $mysqli->connect_errno;
-//     echo '<br>';
-//     echo 'Error: ' . $mysqli->connect_error;
-//     exit();
-// }
+if ($mysqli->connect_error) {
+    echo 'Errno: ' . $mysqli->connect_errno;
+    echo '<br>';
+    echo 'Error: ' . $mysqli->connect_error;
+    exit();
+}
 
-// echo 'Success: A proper connection to MySQL was made.';
-// echo '<br>';
-// echo 'Host information: ' . $mysqli->host_info;
-// echo '<br>';
-// echo 'Protocol version: ' . $mysqli->protocol_version;
+echo 'Success: A proper connection to MySQL was made.';
+echo '<br>';
+echo 'Host information: ' . $mysqli->host_info;
+echo '<br>';
+echo 'Protocol version: ' . $mysqli->protocol_version;
 
-// $sql = "INSERT INTO MyGuests (firstname, lastname, email)
-// VALUES ('John', 'Doe', 'john@example.com')";
+$sql = "INSERT INTO form_data (id, userFirstName, userLastName, userUsername, userPassword)
+VALUES (NULL, $firstname, $lastname, $username, $hashpass)";
 
-// if ($conn->query($sql) === TRUE) {
-//     echo "New record created successfully";
-// } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-// }
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
-// $mysqli->close();
+$mysqli->close();
 ?>
 <?php
+
+$sql = "SELECT * FROM `form_data`";
 
 
 
@@ -97,14 +99,14 @@ if (isset($_POST['submit'])) {
 // this exports the variables needed in next function
 var_dump($firstname, $lastname, $username, $hashpass);
 
-function myFunction($firstname, $lastname, $hashpass, $username)
-{
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'form_data';
-    $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $firstname, 'user-lastname' => $lastname, 'user-username' => $username, 'user-password' => $hashpass));
-}
+// function myFunction($firstname, $lastname, $hashpass, $username)
+// {
+//     global $wpdb;
+//     $table_name = $wpdb->prefix . 'form_data';
+//     $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $firstname, 'user-lastname' => $lastname, 'user-username' => $username, 'user-password' => $hashpass));
+// }
 
-myFunction($firstname, $lastname, $hashpass, $username);
+// myFunction($firstname, $lastname, $hashpass, $username);
 
 get_footer();
 ?>
