@@ -16,8 +16,9 @@ get_header();
     <label for="user-username"> Username
         <input id="user-username" type="text" name="user-username" value="">
     </label>
-    <label for="user-dob"> Password
-        <input id="user-dob" type="text" name="user-dob" value="">
+
+    <label for="user-password"> Password
+        <input id="user-password" type="text" name="user-password" value="">
     </label>
     <input type="submit" name="submit" value="Submit">
 </form>
