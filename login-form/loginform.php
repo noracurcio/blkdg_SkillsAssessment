@@ -29,7 +29,7 @@ get_header();
 print_r($_POST);
 
 
-// write function that stores to the users DB using add_user() from wp provided function
+// trying to connect to mysql db
 $servername = "localhost";
 $username = "noracurcio";
 $password = "hellomoto";
