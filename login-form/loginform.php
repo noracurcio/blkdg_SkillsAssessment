@@ -29,7 +29,7 @@ echo '<pre>';
 // print results to an array
 print_r($_POST);
 // if statement - isset is an inherant action - if true POST data stored in submit
-if (isset($POST['submit'])) {
+if (isset($_POST['submit'])) {
     echo 'test';
 }
 get_footer();
