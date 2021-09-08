@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     $lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
     $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
     $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
-    echo ("First Name") + $firstname;
+    echo "First Name $firstname";
     echo $lastname;
     echo $username;
     echo $password;
