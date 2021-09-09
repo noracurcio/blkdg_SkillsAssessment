@@ -137,6 +137,7 @@ if ($conn === false) {
 
 
 // mysql guery to insert into table
+function runQuery($firstname, $lastname, $username, $hashpass)
 $sql = "INSERT INTO submit_data  VALUES ('$firstname', 
             '$lastname','$username','$password')";
 
