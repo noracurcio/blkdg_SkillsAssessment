@@ -76,7 +76,12 @@ $passCheck = $_REQUEST['passCheck'];
 $hashPass = md5($password);
 
 
+if ($_POST[$password] != ($_POST[$passCheck])) {
+    echo ("Oops, looks like those passwords dont match");
+};
+
 if (isset($_POST['submit'])) {
+
     // echo 'test';
     // checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable. 
     // sanitize_text_field cleans inout field before we feed anything into the DB
@@ -85,7 +90,9 @@ if (isset($_POST['submit'])) {
     $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
     $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
 
-    echo '<script>alert("Thank you for creating an account!")</script>';
+    //Alert when form has been submitted
+
+    echo '<script>alert("Your form has been submitted! Thank you for creating an account!")</script>';
 }
 
 
