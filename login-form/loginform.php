@@ -112,16 +112,7 @@ if (isset($_POST['submit'])) {
     $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
     $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
 
-    // mysql guery to insert into table
-    $sql = "INSERT INTO submit_data  VALUES ($firstname, 
-    $lastname, $username, $password)";
 
-    if (mysqli_query($conn, $sql)) {
-        echo "<h3>SUCCESS!!!";
-    } else {
-        echo "ERROR: sorry,try again $sql. "
-            . mysqli_error($conn);
-    }
 
 
     echo "First Name: $firstname";
