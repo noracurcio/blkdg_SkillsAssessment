@@ -89,8 +89,8 @@ if ($conn === false) {
 
 
 // mysql guery to insert into table
-$sql = "INSERT INTO form_data  VALUES ($first_name, 
-            'test','test','test')";
+$sql = "INSERT INTO form_data  VALUES ('$firstName', 
+            '$lastName', '$userName' ,'$password')";
 
 if (mysqli_query($conn, $sql)) {
     echo "<h3>SUCCESS!!!";
