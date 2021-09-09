@@ -43,7 +43,7 @@ get_header();
                     <input style="background-color:#A4B2BB" type="text" name="pass-check" id="pass-check">
                 </label> -->
             </p>
-            <br><br><br>
+            <br><br>
             <p>
                 <input onclick="<?php header("location: /submit"); ?>" style="color:#BCC8D4;" type="submit" name="submit" value="Submit">
             </p>
@@ -126,7 +126,7 @@ $sql = "INSERT INTO form_data  VALUES ('$firstName',
 
 //checking if the connection to the db was successful or not
 if (mysqli_query($conn, $sql)) {
-    echo "SUCCESS!!";
+    // echo "SUCCESS!!";
 } else {
     echo "ERROR: sorry,try again $sql. "
         . mysqli_error($conn);
