@@ -12,7 +12,7 @@ get_header();
         <h2 style="color:#01273C;">Please Enter Your Log In Credentials:</h2>
         <br><br><br>
 
-        <form action="http://localhost:8888/blkdg_skillstest/submitted/" method="post" autocomplete="off">
+        <form action="" method="post" autocomplete="off">
             <p>
                 <label style="color:#01273C;" for="user-firstname"> First Name:
                     <input style="background-color:#A4B2BB" type="text" name="firstName" id="user-firstname">
@@ -25,7 +25,8 @@ get_header();
                     <input style="background-color:#A4B2BB" type="text" name="lastName" id="user-lastname">
                 </label>
             </p>
-            <br><br>
+            <br>
+
             <p>
                 <label style="color:#01273C;" for="user-username"> Username:
                     <input style="background-color:#A4B2BB" type="text" name="userName" id="user-username">
@@ -66,7 +67,7 @@ $hashPass = md5($password);
 
 
 if (isset($_POST['submit'])) {
-    echo 'test';
+    // echo 'test';
     // checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable. 
     // sanitize_text_field cleans inout field before we feed anything into the DB
     $firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
