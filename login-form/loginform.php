@@ -6,8 +6,8 @@
 
 get_header();
 ?>
-<h1>Please Enter Your Log In Credentials</h1>
-<form action="" method="post">
+<h2>Please Enter Your Log In Credentials</h2>
+<form action="" method="post" autocomplete="off">
     <label for="user-firstname"> First Name
         <input type="text" name="firstName" id="user-firstname">
     </label>
@@ -26,16 +26,33 @@ get_header();
 
 
 
+
+
+
+
 <?php
 
 
-
-
-
+//capturing variables from the form 
 $firstName =  $_REQUEST['firstName'];
 $lastName = $_REQUEST['lastName'];
 $userName = $_REQUEST['userName'];
 $password = $_REQUEST['userPassword'];
+//hashes password into 32 characters
+$hash_val = md5($password);
+
+
+if (isset($_POST['submit'])) {
+    echo 'test';
+    // checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable. 
+    // sanitize_text_field cleans inout field before we feed anything into the DB
+    $firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
+    $lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
+    $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
+    $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
+}
+
+
 
 
 
@@ -53,9 +70,9 @@ if ($conn === false) {
 
 
 
-// mysql guery to insert into table
+// mysql guery to insert into table - added ID
 $sql = "INSERT INTO form_data  VALUES ('$firstName', 
-            '$lastName', '$userName' ,'$password')";
+            '$lastName', '$userName' ,'$hash_val', 0)";
 
 //checking if the connection to the db was successful or not
 if (mysqli_query($conn, $sql)) {
@@ -67,6 +84,11 @@ if (mysqli_query($conn, $sql)) {
 
 // Close connection
 mysqli_close($conn);
+
+
+
+
+
 
 
 
