@@ -6,23 +6,43 @@
 
 get_header();
 ?>
-<h2>Please Enter Your Log In Credentials</h2>
-<form action="" method="post" autocomplete="off">
-    <label for="user-firstname"> First Name
-        <input type="text" name="firstName" id="user-firstname">
-    </label>
-    <label for="user-lastname"> Last Name
-        <input type="text" name="lastName" id="user-lastname">
-    </label>
-    <label for="user-username"> Username
-        <input type="text" name="userName" id="user-username">
-    </label>
 
-    <label for="user-password"> Password
-        <input type="text" name="userPassword" id="user-password">
-    </label>
-    <input type="submit" name="submit" value="Submit">
-</form>
+<body>
+    <center>
+        <h2>Please Enter Your Log In Credentials:</h2>
+        <br><br><br>
+
+        <form action="" method="post" autocomplete="off">
+            <p>
+                <label style="color:darkcyan;" for="user-firstname"> First Name:
+                    <input style="background-color:darkcyan" type="text" name="firstName" id="user-firstname">
+                </label>
+            </p>
+            <br><br>
+            <p>
+                <label for="user-lastname"> Last Name:
+                    <input type="text" name="lastName" id="user-lastname">
+                </label>
+            </p>
+            <br><br>
+            <p>
+                <label for="user-username"> Username:
+                    <input type="text" name="userName" id="user-username">
+                </label>
+            </p>
+            <br><br>
+            <p>
+                <label for="user-password"> Password:
+                    <input type="text" name="userPassword" id="user-password">
+                </label>
+            </p>
+            <br><br>
+            <p>
+                <input style="color:darkcyan" type="submit" name="submit" value="Submit">
+            </p>
+        </form>
+    </center>
+</body>
 
 
 
