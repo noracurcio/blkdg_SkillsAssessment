@@ -12,14 +12,15 @@ get_header();
         <h2 style="color:#01273C;">Please Enter Your Log In Credentials:</h2>
         <br><br><br>
 
-        <form action="" method="post" autocomplete="off">
+        <form action="http://localhost:8888/blkdg_skillstest/submitted/" method="post" autocomplete="off">
             <p>
                 <label style="color:#01273C;" for="user-firstname"> First Name:
                     <input style="background-color:#A4B2BB" type="text" name="firstName" id="user-firstname">
                 </label>
-            </p>
-            <br><br>
-            <p>
+                <br><br>
+
+
+
                 <label style="color:#01273C;" for="user-lastname"> Last Name:
                     <input style="background-color:#A4B2BB" type="text" name="lastName" id="user-lastname">
                 </label>
@@ -29,17 +30,19 @@ get_header();
                 <label style="color:#01273C;" for="user-username"> Username:
                     <input style="background-color:#A4B2BB" type="text" name="userName" id="user-username">
                 </label>
-            </p>
-            <br><br>
-            <p>
+                <br><br>
+
+
+
                 <label style="color:#01273C;" for="user-password"> Password:
                     <input style="background-color:#A4B2BB" type="text" name="userPassword" id="user-password">
                 </label>
             </p>
-            <br><br>
+            <br><br><br>
             <p>
                 <input style="color:#BCC8D4;" type="submit" name="submit" value="Submit">
             </p>
+
         </form>
     </center>
 </body>
