@@ -137,7 +137,6 @@ if ($conn === false) {
 
 
 // mysql guery to insert into table
-function runQuery($firstname, $lastname, $username, $hashpass)
 $sql = "INSERT INTO submit_data  VALUES ('$firstname', 
             '$lastname','$username','$password')";
 
@@ -147,7 +146,7 @@ if (mysqli_query($conn, $sql)) {
     echo nl2br("\n$first_name\n $last_name\n "
         . "$gender\n $address\n $email");
 } else {
-    echo "ERROR: sorry, try again $sql. "
+    echo "ERROR: sorry,try again $sql. "
         . mysqli_error($conn);
 }
 
