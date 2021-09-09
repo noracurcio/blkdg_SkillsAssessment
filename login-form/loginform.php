@@ -6,19 +6,19 @@
 
 get_header();
 ?>
-<form action="insert.php" method="post">
+<form action="" method="post">
     <label for="user-firstname"> First Name
-        <input id="user-firstname" type="text" name="user-firstname" value="">
+        <input id="user-firstname" type="text" name="firstName" id="firstName">
     </label>
     <label for="user-lastname"> Last Name
-        <input id="user-lastname" type="text" name="user-lastname" value="">
+        <input id="user-lastname" type="text" name="lastName" id="lastName">
     </label>
     <label for="user-username"> Username
-        <input id="user-username" type="text" name="user-username" value="">
+        <input id="user-username" type="text" name="userName" id="userName">
     </label>
 
     <label for="user-password"> Password
-        <input id="user-password" type="text" name="user-password" value="">
+        <input id="user-password" type="text" name="userPassword" id="userPassword">
     </label>
     <input type="submit" name="submit" value="Submit">
 </form>
@@ -26,6 +26,7 @@ get_header();
 
 
 <?php
+
 
 
 // connection to the db
@@ -124,6 +125,33 @@ if (isset($_POST['submit'])) {
 
 // this exports the variables needed in next function
 var_dump($firstname, $lastname, $username, $hashpass);
+$conn = mysqli_connect("localhost", "root", "root", "nora_db");
+
+// Check connection
+if ($conn === false) {
+    die("ERROR: Could not connect. "
+        . mysqli_connect_error());
+}
+
+
+
+
+// mysql guery to insert into table
+$sql = "INSERT INTO submit_data  VALUES ('$firstname', 
+            '$lastname','$username','$password')";
+
+if (mysqli_query($conn, $sql)) {
+    echo "<h3>SUCCESS!!!";
+
+    echo nl2br("\n$first_name\n $last_name\n "
+        . "$gender\n $address\n $email");
+} else {
+    echo "ERROR: sorry, try again $sql. "
+        . mysqli_error($conn);
+}
+
+// Close connection
+mysqli_close($conn);
 
 
 
