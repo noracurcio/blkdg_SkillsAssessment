@@ -37,6 +37,15 @@ $lastName = $_REQUEST['lastName'];
 $userName = $_REQUEST['userName'];
 $password = $_REQUEST['userPassword'];
 
+function hashPassword($password)
+{
+    $hashpass = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
+    echo $hashpass;
+}
+var_dump($hashpass);
+
+hashPassword($password);
+
 
 
 
@@ -90,7 +99,7 @@ if ($conn === false) {
 
 // mysql guery to insert into table
 $sql = "INSERT INTO form_data  VALUES ('$firstName', 
-            '$lastName', '$userName' ,'$password')";
+            '$lastName', '$userName' ,'$hashpass')";
 
 if (mysqli_query($conn, $sql)) {
     echo "SUCCESS!!!";
@@ -105,14 +114,6 @@ mysqli_close($conn);
 
 
 
-// function myFunction($firstname, $lastname, $hashpass, $username)
-// {
-//     global $wpdb;
-//     $table_name = $wpdb->prefix . 'form_data';
-//     $wpdb->insert($table_name, array('id' => NULL, 'user-firstname' => $firstname, 'user-lastname' => $lastname, 'user-username' => $username, 'user-password' => $hashpass));
-// }
-
-// myFunction($firstname, $lastname, $hashpass, $username);
-
+// default footer
 get_footer();
 ?>
