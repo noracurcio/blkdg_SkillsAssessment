@@ -124,7 +124,10 @@ if (isset($_POST['submit'])) {
 }
 
 // this exports the variables needed in next function
-var_dump($firstname, $lastname, $username, $hashpass);
+var_dump($firstname, $lastname, $username, $password);
+
+
+// connect to database
 $conn = mysqli_connect("localhost", "root", "root", "nora_db");
 
 // Check connection
@@ -143,8 +146,8 @@ $sql = "INSERT INTO submit_data  VALUES ('$firstname',
 if (mysqli_query($conn, $sql)) {
     echo "<h3>SUCCESS!!!";
 
-    echo nl2br("\n$first_name\n $last_name\n "
-        . "$gender\n $address\n $email");
+    echo nl2br("\n$firstname\n $lastname\n "
+        . "$username\n $password\n $email");
 } else {
     echo "ERROR: sorry,try again $sql. "
         . mysqli_error($conn);
