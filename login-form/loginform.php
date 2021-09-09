@@ -39,9 +39,9 @@ get_header();
                     <input style="background-color:#A4B2BB" type="text" name="userPassword" id="user-password">
                 </label>
                 <br><br>
-                <label style="color:#01273C;" for="pass-check"> Re Enter Password:
+                <!-- <label style="color:#01273C;" for="pass-check"> Re Enter Password:
                     <input style="background-color:#A4B2BB" type="text" name="pass-check" id="pass-check">
-                </label>
+                </label> -->
             </p>
             <br><br><br>
             <p>
@@ -67,7 +67,7 @@ $firstName =  $_REQUEST['firstName'];
 $lastName = $_REQUEST['lastName'];
 $userName = $_REQUEST['userName'];
 $password = $_REQUEST['userPassword'];
-$passCheck = $_REQUEST['passCheck'];
+// $passCheck = $_REQUEST['passCheck'];
 
 
 
@@ -76,9 +76,9 @@ $passCheck = $_REQUEST['passCheck'];
 $hashPass = md5($password);
 
 
-if ($_POST[$password] != ($_POST[$passCheck])) {
-    echo ("Oops, looks like those passwords dont match");
-};
+// if ($_POST[$password] != ($_POST[$passCheck])) {
+//     echo ("Oops, looks like those passwords dont match");
+// };
 
 if (isset($_POST['submit'])) {
 
@@ -92,8 +92,10 @@ if (isset($_POST['submit'])) {
 
     //Alert when form has been submitted
 
+    // die("Your form has been submitted! Thank you for creating an account");
+
     echo '<script>alert("Your form has been submitted! Thank you for creating an account!")</script>';
-}
+};
 
 
 
@@ -107,7 +109,7 @@ $conn = mysqli_connect("localhost", "root", "root", "nora_db");
 if ($conn === false) {
     die("ERROR: Could not connect. "
         . mysqli_connect_error());
-}
+};
 
 
 
