@@ -9,36 +9,36 @@ get_header();
 
 <body>
     <center>
-        <h2>Please Enter Your Log In Credentials:</h2>
+        <h2 style="color:#01273C;">Please Enter Your Log In Credentials:</h2>
         <br><br><br>
 
         <form action="" method="post" autocomplete="off">
             <p>
-                <label style="color:darkcyan;" for="user-firstname"> First Name:
-                    <input style="background-color:darkcyan" type="text" name="firstName" id="user-firstname">
+                <label style="color:#01273C;" for="user-firstname"> First Name:
+                    <input style="background-color:#A4B2BB" type="text" name="firstName" id="user-firstname">
                 </label>
             </p>
             <br><br>
             <p>
-                <label for="user-lastname"> Last Name:
-                    <input type="text" name="lastName" id="user-lastname">
+                <label style="color:#01273C;" for="user-lastname"> Last Name:
+                    <input style="background-color:#A4B2BB" type="text" name="lastName" id="user-lastname">
                 </label>
             </p>
             <br><br>
             <p>
-                <label for="user-username"> Username:
-                    <input type="text" name="userName" id="user-username">
+                <label style="color:#01273C;" for="user-username"> Username:
+                    <input style="background-color:#A4B2BB" type="text" name="userName" id="user-username">
                 </label>
             </p>
             <br><br>
             <p>
-                <label for="user-password"> Password:
-                    <input type="text" name="userPassword" id="user-password">
+                <label style="color:#01273C;" for="user-password"> Password:
+                    <input style="background-color:#A4B2BB" type="text" name="userPassword" id="user-password">
                 </label>
             </p>
             <br><br>
             <p>
-                <input style="color:darkcyan" type="submit" name="submit" value="Submit">
+                <input style="color:#BCC8D4;" type="submit" name="submit" value="Submit">
             </p>
         </form>
     </center>
