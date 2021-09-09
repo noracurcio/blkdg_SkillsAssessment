@@ -29,64 +29,7 @@ get_header();
 
 
 
-// connection to the db
-// $conn = mysqli_connect('localhost', 'root', 'root', 'nora_db');
-// if (!$conn) {
-//     // if the connection doesn't work, echo it.
-//     echo 'Connection error: ' . mysqli_connect_error();
-// }
 
-// $sqlquery = "INSERT INTO submit_data (firstName, lastName, userName, userPassword)
-// VALUES ($firstname, $lastname, $username, $hashpass)";
-
-// if ($conn->query($sql) === TRUE) {
-//     echo "record inserted successfully";
-// } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-// }
-
-
-
-
-
-// connection to mysql db
-// $db_host = 'localhost';
-// $db_user = 'root';
-// $db_password = 'root';
-// $db_db = 'information_schema';
-
-// $mysqli = @new mysqli(
-//     $db_host,
-//     $db_user,
-//     $db_password,
-//     $db_db
-// );
-
-// if ($mysqli->connect_error) {
-//     echo 'Errno: ' . $mysqli->connect_errno;
-//     echo '<br>';
-//     echo 'Error: ' . $mysqli->connect_error;
-//     exit();
-// }
-
-// echo 'Success: A proper connection to MySQL was made.';
-// echo '<br>';
-// echo 'Host information: ' . $mysqli->host_info;
-// echo '<br>';
-// echo 'Protocol version: ' . $mysqli->protocol_version;
-
-
-// // this SHOULD insert into db
-// $sql = "INSERT INTO form_data (id, userFirstName, userLastName, userUsername, userPassword)
-// VALUES (1, $firstname, $lastname, $username, $hashpass)";
-
-// if ($conn->query($sql) === TRUE) {
-//     echo "New record created successfully";
-// } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-// }
-
-// $mysqli->close();
 
 
 
@@ -112,7 +55,16 @@ if (isset($_POST['submit'])) {
     $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
     $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
 
+    // mysql guery to insert into table
+    $sql = "INSERT INTO submit_data  VALUES ($firstname, 
+    $lastname, $username, $password)";
 
+    if (mysqli_query($conn, $sql)) {
+        echo "<h3>SUCCESS!!!";
+    } else {
+        echo "ERROR: sorry,try again $sql. "
+            . mysqli_error($conn);
+    }
 
 
     echo "First Name: $firstname";
@@ -142,14 +94,14 @@ if ($conn === false) {
 
 
 // mysql guery to insert into table
-$sql = "INSERT INTO submit_data  VALUES ('kelly', 
-            'belly','bingo','password')";
+// $sql = "INSERT INTO submit_data  VALUES ('kelly', 
+//             'belly','bingo','password')";
 
-if (mysqli_query($conn, $sql)) {
-    echo "<h3>SUCCESS!!!";
-} else {
-    echo "ERROR: sorry,try again $sql. "
-        . mysqli_error($conn);
+// if (mysqli_query($conn, $sql)) {
+//     echo "<h3>SUCCESS!!!";
+// } else {
+//     echo "ERROR: sorry,try again $sql. "
+//         . mysqli_error($conn);
 }
 
 // Close connection
