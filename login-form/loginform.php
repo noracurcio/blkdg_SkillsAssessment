@@ -37,14 +37,6 @@ $lastName = $_REQUEST['lastName'];
 $userName = $_REQUEST['userName'];
 $password = $_REQUEST['userPassword'];
 
-function hashPassword($password)
-{
-    $hashpass = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
-    echo $hashpass;
-}
-var_dump($hashpass);
-
-hashPassword($password);
 
 
 
@@ -63,10 +55,11 @@ if ($conn === false) {
 
 // mysql guery to insert into table
 $sql = "INSERT INTO form_data  VALUES ('$firstName', 
-            '$lastName', '$userName' ,'$hashpass')";
+            '$lastName', '$userName' ,'$password')";
 
+//checking if the connection to the db was successful or not
 if (mysqli_query($conn, $sql)) {
-    echo "SUCCESS!!!";
+    echo "SUCCESS!!";
 } else {
     echo "ERROR: sorry,try again $sql. "
         . mysqli_error($conn);
