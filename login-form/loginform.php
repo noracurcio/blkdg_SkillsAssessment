@@ -93,7 +93,7 @@ $sql = "INSERT INTO form_data  VALUES ('$firstName',
             '$lastName', '$userName' ,'$password')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "<h3>SUCCESS!!!";
+    echo "SUCCESS!!!";
 } else {
     echo "ERROR: sorry,try again $sql. "
         . mysqli_error($conn);
