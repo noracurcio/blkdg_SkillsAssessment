@@ -12,7 +12,6 @@ A simple form built in PHP that captures a data set and sends it to a mySQL data
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [License](#license)
 - [Future-Development](#future-development)
 
 ## Video
