@@ -23,7 +23,7 @@ A simple form built in PHP that captures a data set and sends it to a mySQL data
 
 ## Usage & Technology
 
-<img src="form.png">
+<img src="exampleform.png">
 * This is user-side form.
 
 This form was built using PHP and its serverside scripting language, html, css, javascript, MAMP, mySQL and WordPress.
