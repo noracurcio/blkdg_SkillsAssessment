@@ -16,7 +16,10 @@ A simple form built in PHP that captures a data set and sends it to a mySQL data
 
 ## Video
 
-[![Demonstration](https://drive.google.com/file/d/191hPsgn7_TcAq525i0OZ119nNuhRIN3M/view)](https://drive.google.com/file/d/191hPsgn7_TcAq525i0OZ119nNuhRIN3M/view)
+[Click here to veiw my demonstration](https://drive.google.com/file/d/191hPsgn7_TcAq525i0OZ119nNuhRIN3M/view)
+<img src="video1.png">
+
+- This is user-side form.
 
 ## Usage
 
