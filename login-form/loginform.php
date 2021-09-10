@@ -39,6 +39,7 @@ get_header();
                     <input style="background-color:#A4B2BB" type="text" name="userPassword" id="user-password">
                 </label>
                 <br><br>
+                <!-- For future development -->
                 <!-- <label style="color:#01273C;" for="pass-check"> Re Enter Password:
                     <input style="background-color:#A4B2BB" type="text" name="pass-check" id="pass-check">
                 </label> -->
@@ -67,6 +68,7 @@ $firstName =  $_REQUEST['firstName'];
 $lastName = $_REQUEST['lastName'];
 $userName = $_REQUEST['userName'];
 $password = $_REQUEST['userPassword'];
+// For future development
 // $passCheck = $_REQUEST['passCheck'];
 
 
@@ -76,21 +78,18 @@ $password = $_REQUEST['userPassword'];
 $hashPass = md5($password);
 
 
-// if ($_POST[$password] != ($_POST[$passCheck])) {
-//     echo ("Oops, looks like those passwords dont match");
-// };
 
 if (isset($_POST['submit'])) {
 
     // echo 'test';
     // checking if its NOT(!) empty then post the value. Store the value of firstname into the $firstname variable. 
-    // sanitize_text_field cleans inout field before we feed anything into the DB
+    // sanitize_text_field cleans input field before we feed anything into the DB
     $firstname = (!empty($_POST['user-firstname'])) ? sanitize_text_field($_POST['user-firstname']) : '';
     $lastname = (!empty($_POST['user-lastname'])) ? sanitize_text_field($_POST['user-lastname']) : '';
     $username = (!empty($_POST['user-username'])) ? sanitize_text_field($_POST['user-username']) : '';
     $password = (!empty($_POST['user-password'])) ? sanitize_text_field($_POST['user-password']) : '';
 
-    //Alert when form has been submitted
+    //Alert when form has been submitted (both ways work, second is better)
 
     // die("Your form has been submitted! Thank you for creating an account");
 
@@ -118,7 +117,7 @@ if ($conn === false) {
 $sql = "INSERT INTO form_data  VALUES ('$firstName', 
             '$lastName', '$userName' ,'$hashPass', 0)";
 
-//Commented for now - trying to find and replace any data entries where the username matches
+//For future development- trying to find and replace any data entries where the username matches
 // $sql = "UPDATE form_data ('$firstName', $lastName, '$userName', '$hashPass')
 // WHERE userName = $userName";
 
